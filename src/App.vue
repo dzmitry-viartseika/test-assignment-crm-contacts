@@ -1,32 +1,46 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div class="app-contacts">
+    <header-template/>
+    <main class="app-contacts-content">
+        <div class="app-contacts-content-left">
+          <contacts-template/>
+        </div>
+        <div class="app-contacts-content-right">
+          <info-contact-template/>
+        </div>
+    </main>
   </div>
 </template>
 
+<script>
+import headerTemplate from './components/headerTemplate.vue';
+import contactsTemplate from './components/contactsTemplate.vue';
+import infoContactTemplate from './components/infoContactTemplate.vue';
+
+export default {
+  name: 'App',
+  components: {
+    headerTemplate,
+    contactsTemplate,
+    infoContactTemplate,
+  },
+};
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  @import "assets/scss/styles";
+  .app-contacts {
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+    &-content {
+      display: flex;
+      &-left {
+        width: 40%;
+        border: 1px solid rgba($color-black, .3);
+        height: 100%;
+      }
+      &-right {
+        width: 60%;
+      }
     }
   }
-}
 </style>
