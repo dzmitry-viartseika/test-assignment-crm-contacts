@@ -11,12 +11,14 @@
           >
             <div class="contacts-row">
               <div class="contacts-row__img">
-                x
+                <img src="../assets/images/person-placeholder.jpg" alt="">
               </div>
               <div class="contacts-row__text">
                 {{ contact.firstName }}
               </div>
-              <i>'>'</i>
+              <div class="contacts-row__img">
+                <img src="../assets/images/arrow-right.png" alt="">
+              </div>
             </div>
           </div>
         </div>
@@ -63,9 +65,24 @@ export default {
     &-row {
       display: flex;
       padding: 1vh;
+      align-items: center;
+      justify-content: flex-start;
+      &-list {
+        width: 100%;
+      }
       &_right {
         justify-content: flex-end;
         border-top: 1px solid rgba($color-black, .3);
+      }
+      &__img {
+        margin-right: 1vh;
+        img {
+          max-width: 5vh;
+          height: auto;
+        }
+      }
+      &__text {
+        width: 80%;
       }
     }
   }
