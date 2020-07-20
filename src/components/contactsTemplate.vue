@@ -9,8 +9,14 @@
                v-for="contact in contacts"
                :key="contact.id"
           >
-            <div class="contacts__item">
-
+            <div class="contacts-row">
+              <div class="contacts-row__img">
+                x
+              </div>
+              <div class="contacts-row__text">
+                {{ contact.firstName }}
+              </div>
+              <i>'>'</i>
             </div>
           </div>
         </div>
