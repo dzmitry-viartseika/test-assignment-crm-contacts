@@ -41,11 +41,13 @@ export default {
 
     &-content {
       display: flex;
+
       &-left {
         width: 40%;
         border: 1px solid rgba($color-black, .3);
         height: 100%;
       }
+
       &-right {
         width: 60%;
       }

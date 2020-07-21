@@ -100,30 +100,38 @@ export default {
 <style scoped lang="scss">
   @import "src/assets/scss/variables";
   .contacts {
+
     &-row {
       display: flex;
       padding: 1vh;
       align-items: center;
       justify-content: flex-start;
+
       &-list {
         width: 100%;
+
         &__item {
+
           &_active {
             background: rgba($color-black, .2);
           }
         }
       }
+
       &_right {
         justify-content: flex-end;
         border-top: 1px solid rgba($color-black, .3);
       }
+
       &__img {
         margin-right: 1vh;
+
         img {
           max-width: 5vh;
           height: auto;
         }
       }
+
       &__text {
         width: 80%;
       }
