@@ -1,6 +1,5 @@
 <template>
     <div class="info-contact">
-      {{ editing }}
       <div class="contacts-row">
         <button class="btn"
                 @click="editing = !editing"
@@ -20,7 +19,12 @@
         <div class="info-contact-row__text"
              v-if="!editing"
         >
-          {{ activeContact.fullName }}
+          <template v-if="activeContact.fullName !== ''">
+            {{ activeContact.fullName }}
+          </template>
+          <template v-else>
+            blank
+          </template>
         </div>
         <div class="info-contact-row__text"
              v-else
@@ -37,7 +41,12 @@
         <div class="info-contact-row__text"
              v-if="!editing"
         >
-          verteyko2131@gmail.com
+          <template v-if="activeContact.email !== ''">
+            {{ activeContact.email }}
+          </template>
+          <template v-else>
+            blank
+          </template>
         </div>
         <div class="info-contact-row__text"
              v-else
@@ -54,7 +63,12 @@
         <div class="info-contact-row__text"
              v-if="!editing"
         >
-          +375 (44) 555-55-55
+          <template v-if="activeContact.phone !== ''">
+            {{ activeContact.phone }}
+          </template>
+          <template v-else>
+            blank
+          </template>
         </div>
         <div class="info-contact-row__text"
              v-else
@@ -71,7 +85,12 @@
         <div class="info-contact-row__text"
              v-if="!editing"
         >
-          +000 (00) 000-00-00
+          <template v-if="activeContact.workPhone !== ''">
+            {{ activeContact.workPhone }}
+          </template>
+          <template v-else>
+            blank
+          </template>
         </div>
         <div class="info-contact-row__text"
              v-else
@@ -88,7 +107,12 @@
         <div class="info-contact-row__text"
              v-if="!editing"
         >
-          Mazurova street 77 fl.101
+          <template v-if="activeContact.address !== ''">
+            {{ activeContact.address }}
+          </template>
+          <template v-else>
+            blank
+          </template>
         </div>
         <div class="info-contact-row__text"
              v-else
@@ -105,7 +129,12 @@
         <div class="info-contact-row__text"
              v-if="!editing"
         >
-          Blank
+          <template v-if="activeContact.notes !== ''">
+            {{ activeContact.notes }}
+          </template>
+          <template v-else>
+            blank
+          </template>
         </div>
         <div class="info-contact-row__text"
              v-else
@@ -133,6 +162,11 @@ export default {
   computed: {
     contact() {
       return this.activeContact;
+    },
+  },
+  methods: {
+    deleteContact(id) {
+      console.log('id', id);
     },
   },
 };
