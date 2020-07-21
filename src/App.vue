@@ -3,10 +3,10 @@
     <header-template/>
     <main class="app-contacts-content">
         <div class="app-contacts-content-left">
-          <contacts-template/>
+          <contacts-template @showInfoSelectedContact="showInfoSelectedContact"/>
         </div>
         <div class="app-contacts-content-right">
-          <info-contact-template/>
+          <info-contact-template :activeContact="activeContact"/>
         </div>
     </main>
   </div>
@@ -19,10 +19,18 @@ import infoContactTemplate from './components/infoContactTemplate.vue';
 
 export default {
   name: 'App',
+  data: () => ({
+    activeContact: null,
+  }),
   components: {
     headerTemplate,
     contactsTemplate,
     infoContactTemplate,
+  },
+  methods: {
+    showInfoSelectedContact(data) {
+      this.activeContact = data;
+    },
   },
 };
 </script>
