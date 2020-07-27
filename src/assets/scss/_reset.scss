@@ -69,3 +69,7 @@ input::placeholder       {
 input:focus::placeholder {
   opacity: 0;
 }
+
+textarea {
+  resize: none;
+}

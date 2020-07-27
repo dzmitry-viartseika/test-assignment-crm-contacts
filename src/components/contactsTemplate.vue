@@ -13,22 +13,22 @@
                :key="contact.id"
                :class="{'contacts-row-list__item_active' : active === contact.id}"
           >
-            <div class="contacts-row">
+            <div class="contacts-row"
+                 @click="selectedContact(contact); active = contact.id"
+            >
               <div class="contacts-row__img">
                 <img src="../assets/images/person-placeholder.jpg" alt="">
               </div>
               <div class="contacts-row__text">
                 {{ contact.fullName }}
               </div>
-              <div class="contacts-row__img"
-                   @click="selectedContact(contact); active = contact.id"
-              >
+              <div class="contacts-row__img">
                 <img src="../assets/images/arrow-right.png" alt="">
               </div>
-              <div class="contacts-row__img"
+              <div class="contacts-row__img contacts-row__img_delete"
                    @click="deleteContact(contact.id)"
               >
-                x
+                <img src="../assets/images/delete-icon.png" alt="">
               </div>
             </div>
           </div>
@@ -158,6 +158,11 @@ export default {
         img {
           max-width: 5vh;
           height: auto;
+          cursor: pointer;
+          transition: opacity .15s ease-in;
+          &:hover {
+            opacity: .8;
+          }
         }
       }
 

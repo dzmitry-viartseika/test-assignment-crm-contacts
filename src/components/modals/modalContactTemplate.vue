@@ -1,8 +1,8 @@
 <template>
     <div class="contact-new">
       <div class="contact-new__content">
-        <input type="text" v-model="contact.fullName">
-        <button @click="newContact">Add</button>
+        <input type="text" class="contact-new__content-input" autofocus v-model="contact.fullName">
+        <button class="btn contact-new__btn" @click="newContact">Add</button>
       </div>
       <div class="contact-new__overlay"
            @click.prevent="clickOutSide(false)"
@@ -35,6 +35,9 @@ export default {
   .contact-new {
     width: 100%;
     height: 100%;
+    &__btn {
+      margin-top: 10px;
+    }
     &__overlay {
       position: absolute;
       width: 100vw;
@@ -50,14 +53,19 @@ export default {
       top: 50%;
       transform: translate(-50%,-50%);
       z-index: 2;
-      width: 20%;
-      height: 10vh;
+      width: 30%;
+      height: 20vh;
       background: $color-white;
       box-shadow: -2px -1px 10px -4px rgba($color-white, .75);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      padding: 5vh;
+      &-input {
+        height: 5vh;
+        padding: 1vh;
+      }
     }
   }
 </style>
